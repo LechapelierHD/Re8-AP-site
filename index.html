@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RE8 AP — Setup</title>
+    <meta name="description" content="Resident Evil Village Archipelago client — download, install, and join the community.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1c1612;
+            --ink-soft: #5c4e42;
+            --foam: #f3eee6;
+            --sea: #8a5a32;
+            --sea-deep: #3d2416;
+            --matrix: #e8c99a;
+            --matrix-dim: #b8894a;
+            --line: rgba(61, 36, 22, 0.14);
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            font-family: "DM Sans", sans-serif;
+            background: linear-gradient(180deg, #f7f3ec 0%, var(--foam) 40%, #e7dfd2 100%);
+            line-height: 1.5;
+        }
+
+        a { color: inherit; }
+
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(10px);
+            background: rgba(243, 238, 230, 0.9);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .site-nav-inner {
+            width: min(1000px, calc(100% - 2.5rem));
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+        }
+
+        .brand-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            margin-right: auto;
+            text-decoration: none;
+            font-family: "Unbounded", sans-serif;
+            font-weight: 700;
+            font-size: 0.78rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--sea-deep);
+        }
+
+        .brand-link img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .lang-tabs { display: inline-flex; gap: 0.15rem; }
+        .lang-tabs button {
+            font-family: "Unbounded", sans-serif;
+            font-weight: 700;
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border: none;
+            background: transparent;
+            color: var(--ink-soft);
+            padding: 0.55rem 0.7rem;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+        }
+        .lang-tabs button.active {
+            color: var(--sea-deep);
+            border-bottom-color: var(--matrix-dim);
+        }
+        .lang-tabs button:not(.active):hover { color: var(--sea-deep); }
+
+        .hero {
+            position: relative;
+            min-height: calc(100svh - 58px);
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            color: var(--foam);
+            text-align: center;
+            isolation: isolate;
+        }
+
+        .hero-visual {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background:
+                radial-gradient(ellipse 55% 45% at 50% 38%, rgba(232, 201, 154, 0.16), transparent 60%),
+                radial-gradient(ellipse 40% 35% at 16% 72%, rgba(139, 58, 58, 0.16), transparent 55%),
+                radial-gradient(ellipse 35% 30% at 86% 22%, rgba(186, 214, 230, 0.14), transparent 50%),
+                linear-gradient(165deg, #100e12 0%, #1a2430 32%, #243044 62%, #12161c 100%);
+        }
+
+        .mw-sky {
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(1.5px 1.5px at 12% 18%, rgba(243, 238, 230, 0.55), transparent),
+                radial-gradient(1.5px 1.5px at 28% 42%, rgba(232, 201, 154, 0.45), transparent),
+                radial-gradient(1px 1px at 63% 28%, rgba(186, 214, 230, 0.5), transparent),
+                radial-gradient(1px 1px at 78% 55%, rgba(243, 238, 230, 0.35), transparent),
+                radial-gradient(1.5px 1.5px at 88% 16%, rgba(232, 201, 154, 0.4), transparent);
+            opacity: 0.85;
+        }
+
+        .mw-sky { animation: star-twinkle 6s ease-in-out infinite alternate; }
+
+        .mw-map {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.85;
+        }
+
+        .mw-links path { animation: link-flow 8s linear infinite; }
+        .mw-links path:nth-child(2) { animation-duration: 11s; animation-direction: reverse; }
+        .mw-links path:nth-child(3) { animation-duration: 9s; }
+
+        .mw-portals circle {
+            transform-origin: center;
+            transform-box: fill-box;
+            animation: portal-pulse 5s var(--ease) infinite;
+        }
+        .mw-portals circle:nth-child(2) { animation-delay: 0.6s; }
+        .mw-portals circle:nth-child(3) { animation-delay: 1.2s; }
+        .mw-portals circle:nth-child(4) { animation-delay: 1.8s; }
+
+        .mw-nodes circle { animation: node-glow 3.2s ease-in-out infinite alternate; }
+        .mw-nodes circle:nth-child(odd) { animation-delay: 0.8s; }
+
+        .mw-islands ellipse {
+            transform-origin: center;
+            transform-box: fill-box;
+            animation: island-drift 14s var(--ease) infinite alternate;
+        }
+        .mw-islands ellipse:nth-child(2) { animation-duration: 18s; animation-delay: 1s; }
+        .mw-islands ellipse:nth-child(3) { animation-duration: 16s; animation-delay: 2s; }
+        .mw-islands ellipse:nth-child(4) { animation-duration: 20s; animation-delay: 0.5s; }
+
+        .hero-logo { animation: logo-float 5.5s var(--ease) infinite; }
+
+        @keyframes logo-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        @keyframes link-flow { to { stroke-dashoffset: -120; } }
+        @keyframes portal-pulse {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.55; }
+        }
+        @keyframes node-glow {
+            from { opacity: 0.45; }
+            to { opacity: 1; }
+        }
+        @keyframes island-drift {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+        @keyframes star-twinkle {
+            from { opacity: 0.55; }
+            to { opacity: 0.95; }
+        }
+
+        .hero-content {
+            width: min(920px, calc(100% - 2.5rem));
+            padding: clamp(2.5rem, 7vh, 4.5rem) 0 clamp(3.5rem, 10vh, 6rem);
+        }
+
+        .hero-logo {
+            display: block;
+            width: min(260px, 62vw);
+            height: auto;
+            margin: 0 auto 1.1rem;
+            filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.45));
+        }
+
+        .hero-logo-missing { display: none; color: #f0b4b4; margin: 0 0 1rem; }
+
+        .brand {
+            margin: 0 0 0.85rem;
+            font-family: "Unbounded", sans-serif;
+            font-weight: 800;
+            font-size: clamp(2rem, 6.5vw, 3.8rem);
+            line-height: 0.95;
+            letter-spacing: -0.03em;
+        }
+
+        .brand span {
+            display: block;
+            margin-top: 0.45rem;
+            font-weight: 500;
+            font-size: 0.36em;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--matrix);
+        }
+
+        .tagline {
+            margin: 0 auto 1.1rem;
+            max-width: 36ch;
+            font-size: 1.05rem;
+            color: rgba(243, 238, 230, 0.78);
+        }
+
+        .visitors { display: flex; justify-content: center; margin: 0 0 1.35rem; }
+        .visitors img { height: 20px; width: auto; }
+
+        .cta { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem; }
+        .cta a, a.btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            min-height: 2.85rem;
+            padding: 0.7rem 1.15rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: transform 0.25s var(--ease), background 0.25s ease, border-color 0.25s ease;
+        }
+        .cta a:hover, a.btn:hover { transform: translateY(-2px); }
+
+        .cta .community, a.btn.community {
+            border: 1px solid rgba(232, 201, 154, 0.4);
+            background: rgba(16, 14, 18, 0.72);
+            color: #f7f1e6;
+        }
+        .cta .community:hover, a.btn.community:hover {
+            background: rgba(48, 28, 22, 0.9);
+            border-color: rgba(232, 201, 154, 0.75);
+        }
+
+        a.btn.primary {
+            background: var(--matrix);
+            color: #2a1c10;
+            border: none;
+        }
+        a.btn.primary:hover { background: #f3ddb8; }
+        a.btn.ghost {
+            border: 1px solid rgba(61, 36, 22, 0.25);
+            background: #fff;
+            color: var(--sea-deep);
+        }
+        a.btn.ghost:hover { border-color: var(--matrix-dim); }
+        a.btn.disabled { pointer-events: none; opacity: 0.45; transform: none; }
+
+        .discord-icon {
+            width: 18px;
+            height: 18px;
+            object-fit: cover;
+            border-radius: 3px;
+        }
+
+        main {
+            width: min(860px, calc(100% - 2.5rem));
+            margin: 0 auto;
+            padding: clamp(2.5rem, 6vw, 4rem) 0 3rem;
+        }
+
+        section { margin: 0 0 1rem; }
+        section h2 {
+            margin: 1.75rem 0 0.7rem;
+            font-family: "Unbounded", sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+            letter-spacing: -0.02em;
+            color: var(--sea-deep);
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 1.15rem 1.25rem;
+            box-shadow: 0 10px 30px rgba(61, 36, 22, 0.05);
+        }
+
+        .card p { margin: 0; color: var(--ink); }
+        .card .hint { margin-top: 0.45rem; color: var(--ink-soft); font-size: 0.95rem; }
+        .card code { color: var(--sea); font-size: 0.92em; }
+
+        .row-card {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .row-card .info { flex: 1; min-width: 220px; }
+        .row-card strong {
+            display: block;
+            font-family: "Unbounded", sans-serif;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.25rem;
+            color: var(--sea-deep);
+        }
+
+        .meta {
+            margin-top: 2.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--line);
+            color: var(--ink-soft);
+            font-size: 0.88rem;
+        }
+        .meta code { color: var(--sea); }
+
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: 24px;
+            transform: translateX(-50%) translateY(120%);
+            background: var(--sea-deep);
+            color: var(--foam);
+            padding: 12px 18px;
+            border-radius: 4px;
+            opacity: 0;
+            transition: transform 0.35s ease, opacity 0.35s ease;
+            z-index: 30;
+            pointer-events: none;
+        }
+        .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    </style>
+</head>
+<body>
+<nav class="site-nav" aria-label="Navigation">
+    <div class="site-nav-inner">
+        <a class="brand-link" href="./">
+            <img src="assets/nav-logo.png?v=1" width="28" height="28" alt="">
+            RE8 AP
+        </a>
+        <div class="lang-tabs" role="tablist" aria-label="Language">
+            <button type="button" role="tab" data-lang="fr" aria-selected="false">FR</button>
+            <button type="button" role="tab" data-lang="en" class="active" aria-selected="true">EN</button>
+        </div>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-visual" aria-hidden="true">
+        <div class="mw-sky"></div>
+        <svg class="mw-map" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
+            <defs>
+                <linearGradient id="linkGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#e8c99a" stop-opacity="0.15"/>
+                    <stop offset="50%" stop-color="#bad6e6" stop-opacity="0.55"/>
+                    <stop offset="100%" stop-color="#e8c99a" stop-opacity="0.15"/>
+                </linearGradient>
+            </defs>
+            <g class="mw-links" fill="none" stroke="url(#linkGrad)" stroke-width="1.5" stroke-dasharray="6 10">
+                <path d="M220 420 C340 280, 420 260, 560 320"/>
+                <path d="M560 320 C700 380, 780 240, 940 300"/>
+                <path d="M320 520 C480 560, 620 480, 760 520"/>
+            </g>
+            <g class="mw-islands" fill="none">
+                <ellipse cx="220" cy="420" rx="78" ry="34" fill="#1a2430" stroke="#8aa4b8" stroke-width="1.5" opacity="0.9"/>
+                <ellipse cx="560" cy="320" rx="96" ry="42" fill="#243044" stroke="#e8c99a" stroke-width="1.8" opacity="0.95"/>
+                <ellipse cx="940" cy="300" rx="70" ry="30" fill="#1a2430" stroke="#bad6e6" stroke-width="1.5" opacity="0.9"/>
+                <ellipse cx="760" cy="520" rx="84" ry="36" fill="#243044" stroke="#8aa4b8" stroke-width="1.5" opacity="0.9"/>
+            </g>
+            <g class="mw-portals" fill="none" stroke="#e8c99a" stroke-width="2">
+                <circle cx="560" cy="320" r="58" opacity="0.35"/>
+                <circle cx="560" cy="320" r="72" opacity="0.18"/>
+                <circle cx="940" cy="300" r="42" opacity="0.28" stroke="#bad6e6"/>
+                <circle cx="220" cy="420" r="48" opacity="0.22"/>
+            </g>
+            <g class="mw-nodes" fill="#e8c99a">
+                <circle cx="220" cy="420" r="4"/>
+                <circle cx="560" cy="320" r="5"/>
+                <circle cx="940" cy="300" r="4"/>
+                <circle cx="760" cy="520" r="4"/>
+            </g>
+        </svg>
+    </div>
+    <div class="hero-content">
+        <img class="hero-logo" id="heroLogo" src="assets/logo.png?v=1" alt="Resident Evil Village AP" width="260" height="260">
+        <p class="hero-logo-missing" id="heroLogoMissing">Logo introuvable : place assets/logo.png à côté de cette page.</p>
+        <h1 class="brand">Resident Evil<br><span>Village AP</span></h1>
+        <p class="tagline" data-i18n="tagline"></p>
+        <div class="visitors">
+            <img src="https://visitor-badge.laobi.icu/badge?page_id=LechapelierHD.re8ap&amp;left_text=visitors" alt="visitor badge">
+        </div>
+        <div class="cta">
+            <a class="community" id="discordTopBtn" href="https://lechapelierhd.github.io/synthetic-shores/" target="_blank" rel="noopener noreferrer">
+                <img class="discord-icon" src="assets/discord-logo.jpg?v=1" alt="" width="18" height="18">
+                <span data-i18n="btn_discord"></span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section>
+        <h2 data-i18n="h_download"></h2>
+        <div class="card row-card">
+            <div class="info">
+                <strong>RE8 AP Client</strong>
+                <p data-i18n="client_desc"></p>
+                <p class="hint" id="clientVersionHint"></p>
+            </div>
+            <a class="btn primary" id="clientDownloadBtn" href="#" target="_blank" rel="noopener noreferrer" data-i18n="btn_download"></a>
+        </div>
+    </section>
+
+    <section>
+        <h2 data-i18n="h_source"></h2>
+        <div class="card row-card">
+            <div class="info">
+                <strong>RE8 AP Source code</strong>
+                <p data-i18n="source_desc"></p>
+                <p class="hint" id="sourceVersionHint"></p>
+            </div>
+            <a class="btn ghost" id="sourceDownloadBtn" href="#" target="_blank" rel="noopener noreferrer" data-i18n="btn_github"></a>
+        </div>
+    </section>
+
+    <section>
+        <h2 data-i18n="h_install"></h2>
+        <div class="card">
+            <p data-i18n-html="install_p"></p>
+            <p class="hint" data-i18n="install_hint"></p>
+        </div>
+    </section>
+
+    <section>
+        <h2 data-i18n="h_connect"></h2>
+        <div class="card">
+            <p data-i18n-html="connect_p"></p>
+            <p class="hint" data-i18n-html="connect_hint"></p>
+        </div>
+    </section>
+
+    <section>
+        <h2 data-i18n="h_discord"></h2>
+        <div class="card row-card">
+            <div class="info">
+                <strong data-i18n="discord_title"></strong>
+                <p data-i18n="discord_desc"></p>
+                <p class="hint" data-i18n="discord_hint"></p>
+            </div>
+            <a class="btn community" id="discordBtn" href="https://lechapelierhd.github.io/synthetic-shores/" target="_blank" rel="noopener noreferrer">
+                <img class="discord-icon" src="assets/discord-logo.jpg?v=1" alt="" width="18" height="18">
+                <span data-i18n="btn_discord"></span>
+            </a>
+        </div>
+    </section>
+
+    <section>
+        <h2 data-i18n="h_bug"></h2>
+        <div class="card">
+            <p data-i18n-html="bug_intro"></p>
+            <p class="hint" data-i18n-html="bug_hint"></p>
+        </div>
+    </section>
+
+    <p class="meta" data-i18n-html="meta"></p>
+</main>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function () {
+    const $ = (id) => document.getElementById(id);
+    const toastEl = $("toast");
+    let toastTimer;
+    let lang = localStorage.getItem("re8ap_lang") || "en";
+
+    const SOURCE_DOWNLOAD_URL = "";
+    const SOURCE_VERSION = "";
+    const CLIENT_DOWNLOAD_URL = "";
+    const CLIENT_VERSION = "1.0.0";
+    const DISCORD_URL = "https://lechapelierhd.github.io/synthetic-shores/";
+
+    const heroLogo = $("heroLogo");
+    const heroMissing = $("heroLogoMissing");
+    if (heroLogo && heroMissing) {
+        heroLogo.addEventListener("error", () => {
+            heroLogo.style.display = "none";
+            heroMissing.style.display = "block";
+        });
+    }
+
+    const I18N = {
+        fr: {
+            title: "RE8 AP — Configuration",
+            tagline: "Guide rapide pour le client RE8 Archipelago.",
+            h_source: "Code source",
+            source_desc: "Lua, apworld Python et lanceur C# du projet, sur GitHub.",
+            hint_source_paste: "Dépôt GitHub non configuré pour le moment.",
+            hint_source_ready: "Le code du projet est sur GitHub.",
+            h_download: "Télécharger le client",
+            client_desc: "Launcher + scripts Archipelago pour Resident Evil Village.",
+            hint_paste: "Client non configuré pour le moment.",
+            hint_ready: "Clique sur Télécharger pour obtenir le client.",
+            hint_version: "Version {v}",
+            btn_download: "Télécharger",
+            btn_github: "GitHub",
+            h_install: "1. Installation",
+            install_p: "Installe <strong>Resident Evil Village</strong> via Steam, télécharge le client ci-dessus, puis lance <code>RE8.AP.Launcher.exe</code>.",
+            install_hint: "Le launcher pose REFramework + les scripts Lua Archipelago. Relance le jeu après une mise à jour de patch.",
+            h_connect: "2. Connexion in-game",
+            connect_p: "Génère le multiworld avec Archipelago (apworld <strong>Resident Evil Village</strong>), puis dans le jeu ouvre l’UI RE8 AP :",
+            connect_hint: "Serveur · Nom du slot · Mot de passe → <strong>Enregistrer et connecter</strong>. La difficulté YAML doit être celle de ta save.",
+            h_discord: "Communauté",
+            discord_title: "Synthorium",
+            discord_desc: "Annonces, aide, bugs et multiworld — tout se passe sur la communauté.",
+            discord_hint: "Les messages privés sont limités : utilise le serveur pour discuter.",
+            btn_discord: "Rejoindre la communauté",
+            h_bug: "3. Bug ou problème ?",
+            bug_intro: "En cas de bug, crash ou autre problème, postez sur la <strong>communauté</strong> avec une description claire (ce que vous avez fait + ce qui s’est passé).",
+            bug_hint: "Joignez si possible <code>reframework/data/re_village_ap_client/debug_log.txt</code> et <code>re2_framework_log.txt</code> (lignes <code>[RE Village AP]</code>). Serveur : <a href=\"https://lechapelierhd.github.io/synthetic-shores/\" target=\"_blank\" rel=\"noopener noreferrer\">Synthetic Shores</a>.",
+            meta: "Client cible : dossier <code>RE Village Archipelago</code> · jeu AP : <code>Resident Evil Village</code> · version client <code>1.0.0</code>",
+        },
+        en: {
+            title: "RE8 AP — Setup",
+            tagline: "Quick guide for the RE8 Archipelago client.",
+            h_source: "Source code",
+            source_desc: "Project Lua, Python apworld, and C# launcher, on GitHub.",
+            hint_source_paste: "GitHub repository not configured yet.",
+            hint_source_ready: "The project source is on GitHub.",
+            h_download: "Download the client",
+            client_desc: "Launcher + Archipelago scripts for Resident Evil Village.",
+            hint_paste: "Client not configured yet.",
+            hint_ready: "Click Download to get the client.",
+            hint_version: "Version {v}",
+            btn_download: "Download",
+            btn_github: "GitHub",
+            h_install: "1. Install",
+            install_p: "Install <strong>Resident Evil Village</strong> via Steam, download the client above, then run <code>RE8.AP.Launcher.exe</code>.",
+            install_hint: "The launcher installs REFramework + Archipelago Lua scripts. Restart the game after a patch update.",
+            h_connect: "2. In-game connection",
+            connect_p: "Generate the multiworld with Archipelago (<strong>Resident Evil Village</strong> apworld), then open the RE8 AP UI in-game:",
+            connect_hint: "Server · Slot name · Password → <strong>Save and connect</strong>. YAML difficulty must match your save.",
+            h_discord: "Community",
+            discord_title: "Synthorium",
+            discord_desc: "Announcements, help, bugs, and multiworld — everything happens in the community.",
+            discord_hint: "DMs are limited: use the server to talk.",
+            btn_discord: "Join the community",
+            h_bug: "3. Bug or problem?",
+            bug_intro: "If you hit a bug, crash, or other issue, post in the <strong>community</strong> with a clear description (what you did + what happened).",
+            bug_hint: "If possible, attach <code>reframework/data/re_village_ap_client/debug_log.txt</code> and <code>re2_framework_log.txt</code> (lines starting with <code>[RE Village AP]</code>). Server: <a href=\"https://lechapelierhd.github.io/synthetic-shores/\" target=\"_blank\" rel=\"noopener noreferrer\">Synthetic Shores</a>.",
+            meta: "Target client folder: <code>RE Village Archipelago</code> · AP game: <code>Resident Evil Village</code> · client version <code>1.0.0</code>",
+        },
+    };
+
+    function t(key) {
+        return (I18N[lang] && I18N[lang][key]) || I18N.fr[key] || key;
+    }
+
+    function applyLang() {
+        document.documentElement.lang = lang;
+        document.title = t("title");
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+            el.textContent = t(el.getAttribute("data-i18n"));
+        });
+        document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+            el.innerHTML = t(el.getAttribute("data-i18n-html"));
+        });
+        document.querySelectorAll(".lang-tabs button").forEach((btn) => {
+            const active = btn.getAttribute("data-lang") === lang;
+            btn.classList.toggle("active", active);
+            btn.setAttribute("aria-selected", active ? "true" : "false");
+        });
+        syncClientDownload();
+        syncSourceDownload();
+        ["discordBtn", "discordTopBtn"].forEach((id) => {
+            const a = $(id);
+            if (a) a.href = DISCORD_URL;
+        });
+        localStorage.setItem("re8ap_lang", lang);
+    }
+
+    function toast(msg) {
+        toastEl.textContent = msg;
+        toastEl.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toastEl.classList.remove("show"), 2200);
+    }
+
+    function syncDownload(btnId, hintId, url, version, pasteKey, readyKey) {
+        const btn = $(btnId);
+        const hint = $(hintId);
+        if (!btn || !hint) return;
+        const cleanUrl = (url || "").trim();
+        const cleanVersion = (version || "").trim();
+        const valid = /^https?:\/\//i.test(cleanUrl);
+        btn.href = valid ? cleanUrl : "#";
+        btn.classList.toggle("disabled", !valid);
+        if (!valid) hint.textContent = t(pasteKey);
+        else if (cleanVersion) hint.textContent = t("hint_version").replace("{v}", cleanVersion);
+        else hint.textContent = t(readyKey);
+    }
+
+    function syncSourceDownload() {
+        syncDownload("sourceDownloadBtn", "sourceVersionHint", SOURCE_DOWNLOAD_URL, SOURCE_VERSION, "hint_source_paste", "hint_source_ready");
+    }
+
+    function syncClientDownload() {
+        syncDownload("clientDownloadBtn", "clientVersionHint", CLIENT_DOWNLOAD_URL, CLIENT_VERSION, "hint_paste", "hint_ready");
+    }
+
+    document.querySelectorAll(".lang-tabs button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            lang = btn.getAttribute("data-lang");
+            applyLang();
+        });
+    });
+
+    applyLang();
+    void toast;
+})();
+</script>
+</body>
+</html>
