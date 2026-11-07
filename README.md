@@ -24,7 +24,7 @@ Releases: https://github.com/LechapelierHD/Re8-AP-site/releases
 
 1. **Resident Evil Village** (Steam)
 2. **Archipelago** 0.6.8 (or compatible) to generate / host
-3. **REFramework** for RE8 (not bundled in the client zip — see below)
+3. **REFramework** for RE8 (bundled in the client; installed by the launcher)
 
 ---
 
@@ -46,7 +46,7 @@ Releases: https://github.com/LechapelierHD/Re8-AP-site/releases
 7. Launch the game from Steam. Wait for the **connected** notification before picking items up.
 8. **Insert** opens the RE Village Archipelago window (Connection tab if needed).
 
-> `dinput8.dll` is **not** inside the client zip (fewer antivirus false positives). Always install REFramework via the launcher or the official nightly.
+> Like RE9: `dinput8.dll` is bundled in the client. Use **Setup status → Install REFramework** to copy it next to `re8.exe`.
 
 ---
 
@@ -65,7 +65,7 @@ Releases: https://github.com/LechapelierHD/Re8-AP-site/releases
 
 | File | Purpose |
 |------|---------|
-| [RE8_AP_Client_1.0.2.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.2/RE8_AP_Client_1.0.2.zip) | Launcher + Lua client + apworld (no `dinput8.dll`) |
+| [RE8_AP_Client_1.0.2.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.2/RE8_AP_Client_1.0.2.zip) | Launcher + Lua client + apworld + bundled REFramework (`dinput8.dll`) |
 | [RE8_AP_Source_1.0.2.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.2/RE8_AP_Source_1.0.2.zip) | Full source (apworld Python, Lua client, launcher C#) |
 
 ---
