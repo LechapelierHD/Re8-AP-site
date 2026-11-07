@@ -2,7 +2,7 @@
 
 Archipelago randomizer client for **Resident Evil Village** (Steam).  
 Game name in Archipelago: `Resident Evil Village`  
-Current client / apworld version: **1.0.2**
+Current client / apworld version: **1.0.3**
 
 Site: https://lechapelierhd.github.io/Re8-AP-site/  
 Releases: https://github.com/LechapelierHD/Re8-AP-site/releases
@@ -31,7 +31,7 @@ Releases: https://github.com/LechapelierHD/Re8-AP-site/releases
 ## Install (player)
 
 1. Install **Resident Evil Village** on Steam.
-2. Download **RE8_AP_Client_1.0.2.zip** from the [latest release](https://github.com/LechapelierHD/Re8-AP-site/releases/tag/v1.0.2).
+2. Download **RE8_AP_Client_1.0.3.zip** from the [latest release](https://github.com/LechapelierHD/Re8-AP-site/releases/tag/v1.0.3).
 3. Extract the folder `RE Village Archipelago` anywhere (Desktop is fine).
 4. Run `RE8.AP.Launcher.exe`.
 5. Open **Setup status**:
@@ -65,8 +65,8 @@ Releases: https://github.com/LechapelierHD/Re8-AP-site/releases
 
 | File | Purpose |
 |------|---------|
-| [RE8_AP_Client_1.0.2.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.2/RE8_AP_Client_1.0.2.zip) | Launcher + Lua client + apworld + bundled REFramework (`dinput8.dll`) |
-| [RE8_AP_Source_1.0.2.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.2/RE8_AP_Source_1.0.2.zip) | Full source (apworld Python, Lua client, launcher C#) |
+| [RE8_AP_Client_1.0.3.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.3/RE8_AP_Client_1.0.3.zip) | Launcher + Lua client + apworld + bundled REFramework (`dinput8.dll`) |
+| [RE8_AP_Source_1.0.3.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.3/RE8_AP_Source_1.0.3.zip) | Full source (apworld Python, Lua client, launcher C#) |
 
 ---
 
