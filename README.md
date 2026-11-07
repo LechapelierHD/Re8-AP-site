@@ -2,7 +2,7 @@
 
 Archipelago randomizer client for **Resident Evil Village** (Steam).  
 Game name in Archipelago: `Resident Evil Village`  
-Current client version: **1.0.4**
+Current client version: **1.0.5**
 
 Site: https://lechapelierhd.github.io/Re8-AP-site/  
 Releases: https://github.com/LechapelierHD/Re8-AP-site/releases
@@ -24,19 +24,19 @@ Releases: https://github.com/LechapelierHD/Re8-AP-site/releases
 
 1. **Resident Evil Village** (Steam)
 2. **Archipelago** 0.6.8 (or compatible) to generate / host
-3. **REFramework** for RE8 (downloaded by the launcher from the official nightly)
+3. **REFramework** for RE8 — [v1.5.9.1 `RE8.zip`](https://github.com/praydog/REFramework/releases/download/v1.5.9.1/RE8.zip) (launcher or manual)
 
 ---
 
 ## Install (player)
 
 1. Install **Resident Evil Village** on Steam.
-2. Download **RE8_AP_Client_1.0.4.zip** from the [latest release](https://github.com/LechapelierHD/Re8-AP-site/releases/tag/v1.0.4).
+2. Download **RE8_AP_Client_1.0.5.zip** from the [latest release](https://github.com/LechapelierHD/Re8-AP-site/releases/tag/v1.0.5).
 3. Extract the folder `RE Village Archipelago` anywhere (Desktop is fine).
 4. Run `RE8.AP.Launcher.exe`.
 5. Open **Setup status**:
    - Set / detect the game folder (`re8.exe`).
-   - Click **Install REFramework** (downloads official `RE8.zip` nightly → `dinput8.dll` next to `re8.exe`).
+   - Click **Install REFramework** (downloads [RE8.zip v1.5.9.1](https://github.com/praydog/REFramework/releases/download/v1.5.9.1/RE8.zip) → `dinput8.dll` next to `re8.exe`).
    - Install the Archipelago client scripts into the game.
 6. **Join a multiworld**:
    - Configure your YAML (slot name, difficulty, key items, Duke shop, hunting, goal…).
@@ -46,7 +46,7 @@ Releases: https://github.com/LechapelierHD/Re8-AP-site/releases
 8. **Insert** opens the RE Village Archipelago window (Connection tab if needed).
 
 > `dinput8.dll` is **not** shipped in the client zip (antivirus false positives).  
-> Use **Setup status → Install REFramework**, or grab [`RE8.zip`](https://github.com/praydog/REFramework-nightly/releases) yourself.
+> Use **Setup status → Install REFramework**, or download [RE8.zip](https://github.com/praydog/REFramework/releases/download/v1.5.9.1/RE8.zip) from the site button.
 
 ---
 
@@ -65,9 +65,10 @@ Releases: https://github.com/LechapelierHD/Re8-AP-site/releases
 
 | File | Purpose |
 |------|---------|
-| [RE8_AP_Client_1.0.4.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.4/RE8_AP_Client_1.0.4.zip) | Launcher + Lua client + apworld (no bundled `dinput8.dll`) |
-| [RE8_AP_Source_1.0.4.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.4/RE8_AP_Source_1.0.4.zip) | Full source (apworld Python, Lua client, launcher C#) |
-| [re8ap_patch_1.0.4.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.4/re8ap_patch_1.0.4.zip) | Update patch for an existing install (Updates tab / `Patchs` folder) |
+| [RE8_AP_Client_1.0.5.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.5/RE8_AP_Client_1.0.5.zip) | Launcher + Lua client + apworld (no bundled `dinput8.dll`) |
+| [RE8_AP_Source_1.0.5.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.5/RE8_AP_Source_1.0.5.zip) | Full source (apworld Python, Lua client, launcher C#) |
+| [re8ap_patch_1.0.5.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.5/re8ap_patch_1.0.5.zip) | Update patch for an existing install |
+| [RE8.zip (REFramework v1.5.9.1)](https://github.com/praydog/REFramework/releases/download/v1.5.9.1/RE8.zip) | Official `dinput8.dll` for RE Village |
 
 ---
 
@@ -91,7 +92,7 @@ Use the launcher **Join** flow to build a valid YAML without editing by hand.
 ## Antivirus / SmartScreen
 
 Windows may still warn on first download: the launcher is **unsigned**.  
-`dinput8.dll` is no longer inside the client zip — the launcher fetches it from [praydog’s nightly](https://github.com/praydog/REFramework-nightly/releases) when you click **Install REFramework**. Prefer the official GitHub release.
+`dinput8.dll` is not inside the client zip — get it via the site **REFramework** button or **Install REFramework** in the launcher ([official v1.5.9.1](https://github.com/praydog/REFramework/releases/download/v1.5.9.1/RE8.zip)).
 
 ---
 
