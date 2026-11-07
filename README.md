@@ -36,8 +36,7 @@ Releases: https://github.com/LechapelierHD/Re8-AP-site/releases
 4. Run `RE8.AP.Launcher.exe`.
 5. Open **Setup status**:
    - Set / detect the game folder (`re8.exe`).
-   - Click **Install REFramework** (downloads the official nightly `RE8.zip` → `dinput8.dll`).  
-     Or install manually from [REFramework nightly](https://github.com/praydog/REFramework-nightly/releases) → `RE8.zip`.
+   - Click **Install REFramework** (copies the bundled `dinput8.dll` next to `re8.exe`, same as RE9).
    - Install the Archipelago client scripts into the game.
 6. **Join a multiworld**:
    - Configure your YAML (slot name, difficulty, key items, Duke shop, hunting, goal…).
@@ -67,6 +66,7 @@ Releases: https://github.com/LechapelierHD/Re8-AP-site/releases
 |------|---------|
 | [RE8_AP_Client_1.0.3.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.3/RE8_AP_Client_1.0.3.zip) | Launcher + Lua client + apworld + bundled REFramework (`dinput8.dll`) |
 | [RE8_AP_Source_1.0.3.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.3/RE8_AP_Source_1.0.3.zip) | Full source (apworld Python, Lua client, launcher C#) |
+| [re8ap_patch_1.0.3.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.3/re8ap_patch_1.0.3.zip) | Update patch for an existing install (Updates tab / `Patchs` folder) |
 
 ---
 
@@ -90,7 +90,7 @@ Use the launcher **Join** flow to build a valid YAML without editing by hand.
 ## Antivirus / SmartScreen
 
 Windows may warn on first download: the launcher is **unsigned**, and mods that use REFramework often look suspicious to Defender.  
-Prefer the official GitHub release. REFramework is installed from [praydog’s nightly](https://github.com/praydog/REFramework-nightly/releases), not from a random DLL in the zip.
+Prefer the official GitHub release. The launcher copies the bundled REFramework `dinput8.dll` into the game folder (like RE9).
 
 ---
 

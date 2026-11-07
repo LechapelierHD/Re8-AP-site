@@ -439,6 +439,18 @@
     </section>
 
     <section>
+        <h2 data-i18n="h_patch"></h2>
+        <div class="card row-card">
+            <div class="info">
+                <strong>RE8 AP Patch</strong>
+                <p data-i18n="patch_desc"></p>
+                <p class="hint" id="patchVersionHint"></p>
+            </div>
+            <a class="btn ghost" id="patchDownloadBtn" href="#" target="_blank" rel="noopener noreferrer" data-i18n="btn_download"></a>
+        </div>
+    </section>
+
+    <section>
         <h2 data-i18n="h_install"></h2>
         <div class="card">
             <p data-i18n-html="install_p"></p>
@@ -493,6 +505,8 @@
     const SOURCE_VERSION = "1.0.3";
     const CLIENT_DOWNLOAD_URL = "https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.3/RE8_AP_Client_1.0.3.zip";
     const CLIENT_VERSION = "1.0.3";
+    const PATCH_DOWNLOAD_URL = "https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.3/re8ap_patch_1.0.3.zip";
+    const PATCH_VERSION = "1.0.3";
     const DISCORD_URL = "https://lechapelierhd.github.io/synthetic-shores/";
 
     const heroLogo = $("heroLogo");
@@ -513,15 +527,19 @@
             hint_source_paste: "Dépôt GitHub non configuré pour le moment.",
             hint_source_ready: "Le code du projet est sur GitHub.",
             h_download: "Télécharger le client",
-            client_desc: "Launcher + scripts Archipelago pour Resident Evil Village.",
+            client_desc: "Launcher + scripts Archipelago + REFramework inclus (dinput8) pour Resident Evil Village.",
             hint_paste: "Client non configuré pour le moment.",
             hint_ready: "Clique sur Télécharger pour obtenir le client.",
             hint_version: "Version {v}",
             btn_download: "Télécharger",
             btn_github: "GitHub",
+            h_patch: "Mise à jour (patch)",
+            patch_desc: "Pour une install déjà en place : place le zip dans le dossier Patchs du lanceur, ou utilise l’onglet Mises à jour.",
+            hint_patch_paste: "Patch non configuré.",
+            hint_patch_ready: "Patch 1.0.3 — scripts, apworld et lanceur.",
             h_install: "1. Installation",
             install_p: "Installe <strong>Resident Evil Village</strong> via Steam, télécharge le client ci-dessus, puis lance <code>RE8.AP.Launcher.exe</code>.",
-            install_hint: "Le launcher pose REFramework (inclus) + les scripts Lua Archipelago. Relance le jeu après une mise à jour.",
+            install_hint: "État de la configuration : détecte le jeu, installe REFramework (inclus) + scripts Lua. Relance le jeu après une mise à jour.",
             h_connect: "2. Connexion in-game",
             connect_p: "Génère le multiworld avec Archipelago (apworld <strong>Resident Evil Village</strong>). En jeu, ouvre REFramework avec <strong>Inser</strong>, puis l’onglet <strong>Connexion</strong> :",
             connect_hint: "Adresse (ex. <code>archipelago.gg:38281</code>) · Nom du slot · Mot de passe → <strong>Se connecter</strong>. La difficulté YAML doit être celle de ta save.",
@@ -543,15 +561,19 @@
             hint_source_paste: "GitHub repository not configured yet.",
             hint_source_ready: "The project source is on GitHub.",
             h_download: "Download the client",
-            client_desc: "Launcher + Archipelago scripts for Resident Evil Village.",
+            client_desc: "Launcher + Archipelago scripts + bundled REFramework (dinput8) for Resident Evil Village.",
             hint_paste: "Client not configured yet.",
             hint_ready: "Click Download to get the client.",
             hint_version: "Version {v}",
             btn_download: "Download",
             btn_github: "GitHub",
+            h_patch: "Update (patch)",
+            patch_desc: "Already installed? Drop the zip into the launcher Patchs folder, or use the Updates tab.",
+            hint_patch_paste: "Patch not configured.",
+            hint_patch_ready: "Patch 1.0.3 — scripts, apworld, and launcher.",
             h_install: "1. Install",
             install_p: "Install <strong>Resident Evil Village</strong> via Steam, download the client above, then run <code>RE8.AP.Launcher.exe</code>.",
-            install_hint: "The launcher installs included REFramework + Archipelago Lua scripts. Restart the game after an update.",
+            install_hint: "Setup status: detect the game, install bundled REFramework + Lua scripts. Restart the game after an update.",
             h_connect: "2. In-game connection",
             connect_p: "Generate the multiworld with Archipelago (<strong>Resident Evil Village</strong> apworld). In-game, open REFramework with <strong>Insert</strong>, then the <strong>Connection</strong> tab:",
             connect_hint: "Address (e.g. <code>archipelago.gg:38281</code>) · Slot name · Password → <strong>Connect</strong>. YAML difficulty must match your save.",
@@ -587,6 +609,7 @@
         });
         syncClientDownload();
         syncSourceDownload();
+        syncPatchDownload();
         ["discordBtn", "discordTopBtn"].forEach((id) => {
             const a = $(id);
             if (a) a.href = DISCORD_URL;
@@ -621,6 +644,10 @@
 
     function syncClientDownload() {
         syncDownload("clientDownloadBtn", "clientVersionHint", CLIENT_DOWNLOAD_URL, CLIENT_VERSION, "hint_paste", "hint_ready");
+    }
+
+    function syncPatchDownload() {
+        syncDownload("patchDownloadBtn", "patchVersionHint", PATCH_DOWNLOAD_URL, PATCH_VERSION, "hint_patch_paste", "hint_patch_ready");
     }
 
     document.querySelectorAll(".lang-tabs button").forEach((btn) => {
