@@ -2,7 +2,7 @@
 
 Archipelago randomizer client for **Resident Evil Village** (Steam).  
 Game name in Archipelago: `Resident Evil Village`  
-Current client version: **1.0.5**
+Current client version: **1.0.6**
 
 Site: https://lechapelierhd.github.io/Re8-AP-site/  
 Releases: https://github.com/LechapelierHD/Re8-AP-site/releases
@@ -31,7 +31,7 @@ Releases: https://github.com/LechapelierHD/Re8-AP-site/releases
 ## Install (player)
 
 1. Install **Resident Evil Village** on Steam.
-2. Download **RE8_AP_Client_1.0.5.zip** from the [latest release](https://github.com/LechapelierHD/Re8-AP-site/releases/tag/v1.0.5).
+2. Download **RE8_AP_Client_1.0.6.zip** from the [latest release](https://github.com/LechapelierHD/Re8-AP-site/releases/tag/v1.0.6).
 3. Extract the folder `RE Village Archipelago` anywhere (Desktop is fine).
 4. Run `RE8.AP.Launcher.exe`.
 5. Open **Setup status**:
@@ -65,9 +65,9 @@ Releases: https://github.com/LechapelierHD/Re8-AP-site/releases
 
 | File | Purpose |
 |------|---------|
-| [RE8_AP_Client_1.0.5.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.5/RE8_AP_Client_1.0.5.zip) | Launcher + Lua client + apworld (no bundled `dinput8.dll`) |
-| [RE8_AP_Source_1.0.5.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.5/RE8_AP_Source_1.0.5.zip) | Full source (apworld Python, Lua client, launcher C#) |
-| [re8ap_patch_1.0.5.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.5/re8ap_patch_1.0.5.zip) | Update patch for an existing install |
+| [RE8_AP_Client_1.0.6.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.6/RE8_AP_Client_1.0.6.zip) | Launcher + Lua client + apworld (no bundled `dinput8.dll`) |
+| [RE8_AP_Source_1.0.6.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.6/RE8_AP_Source_1.0.6.zip) | Full source (apworld Python, Lua client, launcher C#) |
+| [re8ap_patch_1.0.6.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.6/re8ap_patch_1.0.6.zip) | Update patch for an existing install |
 | [RE8.zip (REFramework v1.5.9.1)](https://github.com/praydog/REFramework/releases/download/v1.5.9.1/RE8.zip) | Official `dinput8.dll` for RE Village |
 
 ---
