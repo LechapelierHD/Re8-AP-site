@@ -2,7 +2,7 @@
 
 Archipelago randomizer client for **Resident Evil Village** (Steam).  
 Game name in Archipelago: `Resident Evil Village`  
-Current client / apworld version: **1.0.3**
+Current client version: **1.0.4**
 
 Site: https://lechapelierhd.github.io/Re8-AP-site/  
 Releases: https://github.com/LechapelierHD/Re8-AP-site/releases
@@ -24,19 +24,19 @@ Releases: https://github.com/LechapelierHD/Re8-AP-site/releases
 
 1. **Resident Evil Village** (Steam)
 2. **Archipelago** 0.6.8 (or compatible) to generate / host
-3. **REFramework** for RE8 (bundled in the client; installed by the launcher)
+3. **REFramework** for RE8 (downloaded by the launcher from the official nightly)
 
 ---
 
 ## Install (player)
 
 1. Install **Resident Evil Village** on Steam.
-2. Download **RE8_AP_Client_1.0.3.zip** from the [latest release](https://github.com/LechapelierHD/Re8-AP-site/releases/tag/v1.0.3).
+2. Download **RE8_AP_Client_1.0.4.zip** from the [latest release](https://github.com/LechapelierHD/Re8-AP-site/releases/tag/v1.0.4).
 3. Extract the folder `RE Village Archipelago` anywhere (Desktop is fine).
 4. Run `RE8.AP.Launcher.exe`.
 5. Open **Setup status**:
    - Set / detect the game folder (`re8.exe`).
-   - Click **Install REFramework** (copies the bundled `dinput8.dll` next to `re8.exe`, same as RE9).
+   - Click **Install REFramework** (downloads official `RE8.zip` nightly → `dinput8.dll` next to `re8.exe`).
    - Install the Archipelago client scripts into the game.
 6. **Join a multiworld**:
    - Configure your YAML (slot name, difficulty, key items, Duke shop, hunting, goal…).
@@ -45,7 +45,8 @@ Releases: https://github.com/LechapelierHD/Re8-AP-site/releases
 7. Launch the game from Steam. Wait for the **connected** notification before picking items up.
 8. **Insert** opens the RE Village Archipelago window (Connection tab if needed).
 
-> Like RE9: `dinput8.dll` is bundled in the client. Use **Setup status → Install REFramework** to copy it next to `re8.exe`.
+> `dinput8.dll` is **not** shipped in the client zip (antivirus false positives).  
+> Use **Setup status → Install REFramework**, or grab [`RE8.zip`](https://github.com/praydog/REFramework-nightly/releases) yourself.
 
 ---
 
@@ -64,9 +65,9 @@ Releases: https://github.com/LechapelierHD/Re8-AP-site/releases
 
 | File | Purpose |
 |------|---------|
-| [RE8_AP_Client_1.0.3.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.3/RE8_AP_Client_1.0.3.zip) | Launcher + Lua client + apworld + bundled REFramework (`dinput8.dll`) |
-| [RE8_AP_Source_1.0.3.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.3/RE8_AP_Source_1.0.3.zip) | Full source (apworld Python, Lua client, launcher C#) |
-| [re8ap_patch_1.0.3.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.3/re8ap_patch_1.0.3.zip) | Update patch for an existing install (Updates tab / `Patchs` folder) |
+| [RE8_AP_Client_1.0.4.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.4/RE8_AP_Client_1.0.4.zip) | Launcher + Lua client + apworld (no bundled `dinput8.dll`) |
+| [RE8_AP_Source_1.0.4.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.4/RE8_AP_Source_1.0.4.zip) | Full source (apworld Python, Lua client, launcher C#) |
+| [re8ap_patch_1.0.4.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.4/re8ap_patch_1.0.4.zip) | Update patch for an existing install (Updates tab / `Patchs` folder) |
 
 ---
 
@@ -89,8 +90,8 @@ Use the launcher **Join** flow to build a valid YAML without editing by hand.
 
 ## Antivirus / SmartScreen
 
-Windows may warn on first download: the launcher is **unsigned**, and mods that use REFramework often look suspicious to Defender.  
-Prefer the official GitHub release. The launcher copies the bundled REFramework `dinput8.dll` into the game folder (like RE9).
+Windows may still warn on first download: the launcher is **unsigned**.  
+`dinput8.dll` is no longer inside the client zip — the launcher fetches it from [praydog’s nightly](https://github.com/praydog/REFramework-nightly/releases) when you click **Install REFramework**. Prefer the official GitHub release.
 
 ---
 
