@@ -1,36 +1,25 @@
 # Resident Evil Village Archipelago (RE8 AP)
 
-Archipelago randomizer client for **Resident Evil Village** (Steam).  
-Game name in Archipelago: `Resident Evil Village`  
-Current client version: **1.0.7**
+Client Archipelago for **Resident Evil Village**. Version **1.0.8**.
 
 Site: https://lechapelierhd.github.io/Re8-AP-site/  
 Releases: https://github.com/LechapelierHD/Re8-AP-site/releases
-
----
 
 ## Downloads
 
 | File | Purpose |
 |------|---------|
-| [RE8_AP_Client_1.0.7.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.7/RE8_AP_Client_1.0.7.zip) | Launcher + Lua + apworld (**no** REFramework) |
-| [REFramework_RE8_1.5.9.1.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.7/REFramework_RE8_1.5.9.1.zip) | **Separate** REFramework (`dinput8.dll`) — official praydog RE8.zip |
-| [RE8_AP_Bundle_1.0.7.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.7/RE8_AP_Bundle_1.0.7.zip) | Client folder + REFramework zip side by side |
-| [RE8_AP_Source_1.0.7.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.7/RE8_AP_Source_1.0.7.zip) | Full source |
-| [re8ap_patch_1.0.7.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.7/re8ap_patch_1.0.7.zip) | Update patch |
+| [RE8_AP_Client_1.0.8.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.8/RE8_AP_Client_1.0.8.zip) | Launcher (single-file) + Lua + apworld |
+| [REFramework_RE8_1.5.9.1.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.8/REFramework_RE8_1.5.9.1.zip) | REFramework separate |
+| [RE8_AP_Bundle_1.0.8.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.8/RE8_AP_Bundle_1.0.8.zip) | Client + REFramework side by side |
+| [re8ap_patch_1.0.8.zip](https://github.com/LechapelierHD/Re8-AP-site/releases/download/v1.0.8/re8ap_patch_1.0.8.zip) | Update patch (RE9-style) |
 
-Put `REFramework_RE8_1.5.9.1.zip` next to `RE8.AP.Launcher.exe`, then **Setup → Install REFramework**.  
-Or let the launcher download it.
+## Patch mechanic (like RE9)
 
----
+- Launcher is **single-file self-contained** — « Mettre à jour » replaces the exe and restarts
+- Each release hosts `patches.json` + `re8ap_patch_*.zip` via `publish_github.ps1`
+- Drop a patch zip into the `Patchs` folder for offline install
 
 ## Antivirus
 
-`dinput8.dll` is **not** inside the client zip. Only the separate REFramework zip contains it (same as praydog’s release).
-
----
-
-## License / credits
-
-- [Archipelago](https://archipelago.gg/) · [REFramework](https://github.com/praydog/REFramework)
-- Resident Evil Village © Capcom. Fan client, not affiliated with Capcom.
+REFramework (`dinput8.dll`) is **not** inside the client zip.
